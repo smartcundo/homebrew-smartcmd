@@ -48,6 +48,7 @@ class Smart < Formula
   end
 
   def install
+    bin.install "formula-smartflask/smart.py"
     vendor_site_packages = libexec+"lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
 
@@ -73,7 +74,7 @@ class Smart < Formula
     puts Dir.pwd
     basedir = '.'
     puts Dir.glob("*.py")
-    bin.install "create_iam_accounts.py"
+    bin.install "formula-smartflask/smart.py"
     mv "#{bin}/create_iam_accounts.py", "#{bin}/create_iam_accounts"
     puts "#{bin}/create_iam_accounts"
     File.symlink("#{bin}/create_iam_accounts","/usr/local/bin/create_iam_accounts")
