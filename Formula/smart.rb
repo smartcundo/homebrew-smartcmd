@@ -1,6 +1,6 @@
 require 'formula'
 
-class SmartCmd < Formula
+class Smart < Formula
   homepage 'https://github.com/smartcundo/smartflask'
   url 'https://github.com/smartcundo/smartflask/archive/v0.0.8.tar.gz'
   sha256 'c55c9074e32c79794151ccb7054c918929f17f3d02ab6286e21ba3b0da7a5626'
