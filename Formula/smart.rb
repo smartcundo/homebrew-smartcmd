@@ -72,7 +72,7 @@ class Smart < Formula
     puts "This is the start of the install"
     puts Dir.pwd
     basedir = '.'
-    puts Dir.glob("*.py")
+    puts Dir.glob("*")
     bin.install "formula-smartflask/smart.py"
     mv "#{bin}/create_iam_accounts.py", "#{bin}/create_iam_accounts"
     puts "#{bin}/create_iam_accounts"
