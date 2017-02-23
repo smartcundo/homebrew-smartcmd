@@ -48,7 +48,7 @@ class Smart < Formula
   end
 
   def install
-    bin.install "formula-smartflask/smart.py"
+    # bin.install "formula-smartflask/smart.py"
     vendor_site_packages = libexec+"lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
 
