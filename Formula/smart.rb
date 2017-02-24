@@ -74,7 +74,7 @@ class Smart < Formula
     basedir = '.'
     puts Dir.glob("formula-smartflask/*")
     # bin.install "formula-smartflask/smart.py"
-    mv "formula-smartflask/smart.py", "#{bin}/smart"
+    # mv "formula-smartflask/smart.py", "#{bin}/smart"
     puts "#{bin}/smart"
     File.symlink("#{bin}/smart","/usr/local/bin/smart")
     puts "This is the end of the install"
