@@ -2,8 +2,8 @@ require 'formula'
 
 class Smart < Formula
   homepage 'https://github.com/smartcundo/smartflask'
-  url 'https://github.com/smartcundo/smartflask/archive/0.0.3.tar.gz'
-  sha256 '32aad35906a46b2c80bf67f9c7492a47e9c0ab766a757ac95843daa08698e28d'
+  url "https://github.com/smartcundo/smartflask/archive/0.0.4.tar.gz"
+  sha256 "d614ffdf5cd46682f668fb97210ff829d8fc47aa770c1bc17ebab84633003a15"
 
   head do
     url "https://github.com/aws/aws-cli.git", :branch => :develop
