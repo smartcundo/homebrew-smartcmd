@@ -47,6 +47,11 @@ class Smart < Formula
     sha256 "96f83b0ab784e1e003111ff14927e4857df42aa169acccabd357ae84ec800897"
   end
 
+  resource "flask_script" do
+    url "https://pypi.python.org/packages/66/e9/2b3c7c548a6bad0b59da21e2050613da43aae4da617fb98847efa3e09a43/Flask-Script-2.0.5.tar.gz"
+    sha256 "cef76eac751396355429a14c38967bb14d4973c53e07dec94af5cc8fb017107f"
+  end
+
   def install
     # bin.install "formula-smartflask/smart.py"
     vendor_site_packages = libexec+"lib/python2.7/site-packages"
@@ -59,6 +64,7 @@ class Smart < Formula
     end
 
     resource("botocore").stage { system "python", *install_args }
+    resource("flask_script").stage { system "python",  *Language::Python.setup_install_args(libexec/) }
     # resource("bcdoc").stage { system "python", *install_args }
     # resource("six").stage { system "python", *install_args }
     # resource("colorama").stage { system "python", *install_args }
