@@ -78,9 +78,9 @@ class Smart < Formula
     # resource("rsa").stage { system "python", *install_args }
 
     %w[botocore flask].each do |r|
-      system "pip", "install", "--prefix=#{prefix}", r
+      system "pip", "install", "--prefix="+libexec/"vendor", r
     end
-    
+
     system "python", "setup.py", "install", "--prefix=#{prefix}", "--record=installed.txt"
 
     ENV.prepend_create_path "PYTHONPATH", libexec
