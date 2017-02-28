@@ -55,16 +55,21 @@ class Smart < Formula
   def install
     # bin.install "formula-smartflask/smart.py"
     vendor_site_packages = libexec+"lib/python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
     install_args = [ "setup.py", "install", "--prefix=#{libexec}" ]
 
-    if build.head? then
-      resource("jmespath").stage { system "python", *install_args }
+    # if build.head? then
+    #   resource("jmespath").stage { system "python", *install_args }
+    # end
+
+    %w[botocore flask_script].each do |r|
+      resource(r).stage do
+      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      end
     end
 
-    resource("botocore").stage { system "python", *install_args }
-    resource("flask_script").stage { system "python",  *Language::Python.setup_install_args(libexec) }
+    # resource("botocore").stage { system "python", *install_args }
     # resource("bcdoc").stage { system "python", *install_args }
     # resource("six").stage { system "python", *install_args }
     # resource("colorama").stage { system "python", *install_args }
