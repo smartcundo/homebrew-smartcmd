@@ -52,6 +52,11 @@ class Smart < Formula
     sha256 "cef76eac751396355429a14c38967bb14d4973c53e07dec94af5cc8fb017107f"
   end
 
+  resource "flask" do
+    url "https://pypi.python.org/packages/4b/3a/4c20183df155dd2e39168e35d53a388efb384a512ca6c73001d8292c094a/Flask-0.12.tar.gz"
+    sha256 "93e803cdbe326a61ebd5c5d353959397c85f829bec610d59cb635c9f97d7ca8b"
+  end
+
   def install
     # bin.install "formula-smartflask/smart.py"
     vendor_site_packages = libexec+"lib/python2.7/site-packages"
@@ -63,7 +68,7 @@ class Smart < Formula
     #   resource("jmespath").stage { system "python", *install_args }
     # end
 
-    %w[botocore flask_script].each do |r|
+    %w[botocore flask_script flask].each do |r|
       resource(r).stage do
       system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
