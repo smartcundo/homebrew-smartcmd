@@ -64,7 +64,7 @@ class Smart < Formula
     end
 
     resource("botocore").stage { system "python", *install_args }
-    resource("flask_script").stage { system "python",  *Language::Python.setup_install_args(libexec/) }
+    resource("flask_script").stage { system "python",  *Language::Python.setup_install_args(libexec) }
     # resource("bcdoc").stage { system "python", *install_args }
     # resource("six").stage { system "python", *install_args }
     # resource("colorama").stage { system "python", *install_args }
