@@ -80,7 +80,8 @@ class Smart < Formula
 
     ENV.prepend_create_path "PYTHONPATH", libexec
     # libexec.install Dir["formula-smartflask"]
-    bin.install "formula-smartflask/smart.py"
+    # bin.install "formula-smartflask/smart.py"
+    bin.install "bin/smart"
     bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     puts "This is the start of the install"
