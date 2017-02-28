@@ -2,7 +2,7 @@ require 'formula'
 
 class Smart < Formula
   homepage 'https://github.com/smartcundo/smartflask'
-  url "https://github.com/smartcundo/smartflask/archive/0.0.5.tar.gz"
+  url "https://github.com/smartcundo/smartflask/archive/0.0.6.tar.gz"
   sha256 "19e9edb3ee45ccaccf5a27234428be384e94daf7bd1b4eb7154f358d528a2cd0"
 
   head do
