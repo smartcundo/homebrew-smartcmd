@@ -52,15 +52,6 @@ class Smart < Formula
     sha256 "cef76eac751396355429a14c38967bb14d4973c53e07dec94af5cc8fb017107f"
   end
 
-  resource "flask" do
-    url "https://pypi.python.org/packages/4b/3a/4c20183df155dd2e39168e35d53a388efb384a512ca6c73001d8292c094a/Flask-0.12.tar.gz"
-    sha256 "93e803cdbe326a61ebd5c5d353959397c85f829bec610d59cb635c9f97d7ca8b"
-  end
-
-  resource "werkzeug" do
-    url "https://pypi.python.org/packages/fe/7f/6d70f765ce5484e07576313897793cb49333dd34e462488ee818d17244af/Werkzeug-0.11.15.tar.gz"
-    sha256 "455d7798ac263266dbd38d4841f7534dd35ca9c3da4a8df303f8488f38f3bcc0"
-  end
 
   def install
     # bin.install "formula-smartflask/smart.py"
@@ -73,7 +64,7 @@ class Smart < Formula
     #   resource("jmespath").stage { system "python", *install_args }
     # end
 
-    %w[botocore flask_script flask werkzeug].each do |r|
+    %w[botocore flask_script].each do |r|
       resource(r).stage do
       system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
@@ -86,7 +77,10 @@ class Smart < Formula
     # resource("docutils").stage { system "python", *install_args }
     # resource("rsa").stage { system "python", *install_args }
 
-    system "pip", "install", "--prefix=#{prefix}", "flask"
+    %w[botocore flask].each do |r|
+      system "pip", "install", "--prefix=#{prefix}", r
+    end
+    
     system "python", "setup.py", "install", "--prefix=#{prefix}", "--record=installed.txt"
 
     ENV.prepend_create_path "PYTHONPATH", libexec
