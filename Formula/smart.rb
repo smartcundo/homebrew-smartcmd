@@ -86,6 +86,7 @@ class Smart < Formula
     # resource("docutils").stage { system "python", *install_args }
     # resource("rsa").stage { system "python", *install_args }
 
+    system "pip", "install", "--prefix=#{prefix}", "flask"
     system "python", "setup.py", "install", "--prefix=#{prefix}", "--record=installed.txt"
 
     ENV.prepend_create_path "PYTHONPATH", libexec
