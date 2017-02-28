@@ -77,6 +77,7 @@ class Smart < Formula
     # resource("rsa").stage { system "python", *install_args }
 
     system "python", "setup.py", "install", "--prefix=#{prefix}", "--record=installed.txt"
+    libexec.install Dir["formula-smartflask"]
     bin.install "formula-smartflask/smart.py"
     bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
