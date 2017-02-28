@@ -66,14 +66,13 @@ class Smart < Formula
     # resource("rsa").stage { system "python", *install_args }
 
     system "python", "setup.py", "install", "--prefix=#{prefix}", "--record=installed.txt"
-
+    bin.install "bin/smart"
     bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     puts "This is the start of the install"
     puts Dir.pwd
     basedir = '.'
     puts Dir.glob("formula-smartflask/*")
-    bin.install Dir[libexec/"formula-smartflask/*"]
     # bin.install "formula-smartflask/smart.py"
     # mv "formula-smartflask/smart.py", "#{bin}/smart"
     # File.symlink("/usr/local/bin/smart", "#{bin}/smart")
