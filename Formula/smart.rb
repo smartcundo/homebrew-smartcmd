@@ -64,7 +64,7 @@ class Smart < Formula
     #   resource("jmespath").stage { system "python", *install_args }
     # end
 
-    %w[botocore flask_script].each do |r|
+    %w[boto3 flask_script].each do |r|
       resource(r).stage do
       system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
