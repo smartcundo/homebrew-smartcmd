@@ -77,7 +77,7 @@ class Smart < Formula
     # resource("docutils").stage { system "python", *install_args }
     # resource("rsa").stage { system "python", *install_args }
 
-    %w[botocore flask awscli boto3].each do |r|
+    %w[flask awscli boto3].each do |r|
       system "pip", "install", "--prefix="+libexec/"vendor", r
     end
 
